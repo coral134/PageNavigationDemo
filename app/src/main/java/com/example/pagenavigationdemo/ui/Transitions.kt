@@ -1,4 +1,4 @@
-package com.example.pianostudio.ui2
+package com.example.pagenavigationdemo.ui
 
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -6,7 +6,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
-import com.example.pianostudio.page_navigation.myTransition
+import com.example.pagenavigationdemo.page_navigation.myTransition
 
 val fullScreenTransition: myTransition = {
     fadeIn(

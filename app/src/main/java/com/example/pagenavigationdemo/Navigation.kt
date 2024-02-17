@@ -1,4 +1,4 @@
-package com.example.pianostudio.ui2
+package com.example.pagenavigationdemo
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
@@ -11,15 +11,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.pianostudio.page_navigation.PageNavigationRoot
-import com.example.pianostudio.page_navigation.PageSwitcher
-import com.example.pianostudio.page_navigation.rememberLocalPageNavigator
+import com.example.pagenavigationdemo.page_navigation.PageNavigationRoot
+import com.example.pagenavigationdemo.page_navigation.PageSwitcher
+import com.example.pagenavigationdemo.page_navigation.rememberLocalPageNavigator
+import com.example.pagenavigationdemo.ui.MainTabScreen
+import com.example.pagenavigationdemo.ui.MySideNavBar
+import com.example.pagenavigationdemo.ui.PlaceHolderFullScreen
+import com.example.pagenavigationdemo.ui.PlaceHolderScreen
+import com.example.pagenavigationdemo.ui.fullScreenTransition
+import com.example.pagenavigationdemo.ui.tabsTransition
 
 
 @Composable
 fun Navigation(
     modifier: Modifier
 ) {
+
     PageNavigationRoot(
         startingRoute = "Tabs/Tab1",
         transitionSpec = fullScreenTransition

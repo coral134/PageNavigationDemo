@@ -1,4 +1,4 @@
-package com.example.pianostudio.page_navigation
+package com.example.pagenavigationdemo.page_navigation
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
