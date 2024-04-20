@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 @Composable
 fun PageNavigationRoot(
     startingRoute: String,
-    transitionSpec: myTransition = defaultTransition,
+    transitionSpec: MyTransition = defaultTransition,
     content: @Composable () -> Unit
 ) {
     val fullPath = remember(startingRoute) {
@@ -54,7 +54,7 @@ fun PageNavigationRoot(
 fun PageSwitcher(
     modifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.Center,
-    transitionSpec: myTransition? = null,
+    transitionSpec: MyTransition? = null,
     builder: DefineNewPagesScope.() -> Unit,
 ) {
     val thisNavContext = localScopedNavContext.currentOrThrow
@@ -149,12 +149,12 @@ class DefineNewPagesScope {
     }
 }
 
-class Page(
+data class Page(
     val onOpened: () -> Unit = {},
     val content: @Composable AnimatedContentScope.() -> Unit,
 )
 
-class PageWithContext(
+data class PageWithContext(
     val pageContent: Page,
     val navContext: ScopedNavContext
 )
@@ -171,21 +171,21 @@ private val <T> ProvidableCompositionLocal<T?>.currentOrThrow: T
     @Composable
     get() = current ?: error("CompositionLocal is null")
 
-class ScopedNavContext(
+data class ScopedNavContext(
     val thisPageName: String,
     val localRoute: List<String>,
-    val transitionSpec: myTransition
+    val transitionSpec: MyTransition
 )
 
-class RootNavContext(
+data class RootNavContext(
     val rootPath: MutableState<List<String>>,
 )
 
 // #################################################################################################
 
-typealias myTransition = AnimatedContentTransitionScope<PageWithContext>.() -> ContentTransform
+typealias MyTransition = AnimatedContentTransitionScope<PageWithContext>.() -> ContentTransform
 
-private val defaultTransition: myTransition = {
+private val defaultTransition: MyTransition = {
     fadeIn(animationSpec = tween(300)) togetherWith
             fadeOut(animationSpec = tween(300))
 }

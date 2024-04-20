@@ -11,22 +11,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.pagenavigationdemo.page_navigation.PageNavigationRoot
-import com.example.pagenavigationdemo.page_navigation.PageSwitcher
-import com.example.pagenavigationdemo.page_navigation.rememberLocalPageNavigator
 import com.example.pagenavigationdemo.ui.MainTabScreen
 import com.example.pagenavigationdemo.ui.MySideNavBar
 import com.example.pagenavigationdemo.ui.PlaceHolderFullScreen
 import com.example.pagenavigationdemo.ui.PlaceHolderScreen
 import com.example.pagenavigationdemo.ui.fullScreenTransition
 import com.example.pagenavigationdemo.ui.tabsTransition
+import com.example.pagenavigationdemo.page_navigation.PageNavigationRoot
+import com.example.pagenavigationdemo.page_navigation.PageSwitcher
+import com.example.pagenavigationdemo.page_navigation.rememberLocalPageNavigator
 
 
 @Composable
 fun Navigation(
     modifier: Modifier
 ) {
-
     PageNavigationRoot(
         startingRoute = "Tabs/Tab1",
         transitionSpec = fullScreenTransition
